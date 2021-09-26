@@ -1,6 +1,7 @@
 package com.sshhiinn.freewings.model;
 
 import javax.persistence.*;
+import java.util.Collection;
 
 @Entity
 @Table(name = "app_user")
@@ -23,14 +24,18 @@ public class User {
     @Column(name = "PASSWORD")
     private String password;
 
+    @OneToMany(mappedBy = "user", fetch = FetchType.EAGER)
+    private Collection<Order> orders;
+
     public User(){}
 
-    public User(long id, String firstName, String lastName, String email, String password) {
+    public User(long id, String firstName, String lastName, String email, String password, Collection<Order> orders) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
         this.password = password;
+        this.orders = orders;
     }
 
     public long getId() {
@@ -71,5 +76,13 @@ public class User {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public Collection<Order> getOrders() {
+        return orders;
+    }
+
+    public void setOrders(Collection<Order> orders) {
+        this.orders = orders;
     }
 }

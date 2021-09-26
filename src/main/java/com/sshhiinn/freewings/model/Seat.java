@@ -21,13 +21,17 @@ public class Seat {
     @Column(name = "IS_TAKEN")
     private boolean isTaken;
 
+    @Column(name = "PRICE")
+    private int price;
+
     public Seat(){}
 
-    public Seat(long id, Flight flight, int number, boolean isTaken) {
+    public Seat(long id, Flight flight, int number, boolean isTaken, int price) {
         this.id = id;
         this.flight = flight;
         this.number = number;
         this.isTaken = isTaken;
+        this.price = price;
     }
 
     public long getId() {
@@ -60,5 +64,13 @@ public class Seat {
 
     public void setTaken(boolean taken) {
         isTaken = taken;
+    }
+
+    public int getPrice() {
+        return price;
+    }
+
+    public void setPrice(int price) {
+        this.price = price;
     }
 }
