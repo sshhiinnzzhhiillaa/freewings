@@ -13,12 +13,4 @@ public class FlightService {
     public FlightService(FlightRepository repository) {
         this.repository = repository;
     }
-
-    public FlightRepository getRepository() {
-        return repository;
-    }
-
-    public void setRepository(FlightRepository repository) {
-        this.repository = repository;
-    }
 }
