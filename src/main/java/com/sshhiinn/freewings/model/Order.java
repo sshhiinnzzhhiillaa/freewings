@@ -1,10 +1,10 @@
 package com.sshhiinn.freewings.model;
 
 import javax.persistence.*;
-import java.util.Collection;
+import java.util.List;
 
 @Entity
-@Table(name = "order")
+@Table(name = "app_order")
 public class Order {
 
     @Id
@@ -13,11 +13,11 @@ public class Order {
     private long id;
 
     @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "USER_ID")
-    private User user;
+    @JoinColumn(name = "APP_USER_ID")
+    private User appUser;
 
     @OneToMany(mappedBy = "order", fetch = FetchType.EAGER)
-    private Collection<Ticket> tickets;
+    private List<Ticket> tickets;
 
     @Column(name = "SUM")
     private int sum;

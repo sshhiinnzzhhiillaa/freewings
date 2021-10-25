@@ -24,7 +24,7 @@ public class User {
     @Column(name = "PASSWORD")
     private String password;
 
-    @OneToMany(mappedBy = "user", fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "appUser", fetch = FetchType.EAGER)
     private Collection<Order> orders;
 
     public User(){}

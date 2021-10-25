@@ -1,6 +1,8 @@
 package com.sshhiinn.freewings;
 
+import com.sshhiinn.freewings.config.DBConfig;
 import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
