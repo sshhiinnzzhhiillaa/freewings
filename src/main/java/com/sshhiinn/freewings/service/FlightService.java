@@ -7,7 +7,6 @@ import org.springframework.data.rest.webmvc.ResourceNotFoundException;
 import org.springframework.stereotype.Service;
 
 import javax.management.openmbean.KeyAlreadyExistsException;
-import java.util.Collection;
 import java.util.LinkedList;
 import java.util.List;
 
