@@ -1,5 +1,7 @@
 package com.sshhiinn.freewings.model;
 
+import com.sshhiinn.freewings.common.UserRole;
+
 import javax.persistence.*;
 import java.util.Collection;
 
@@ -24,17 +26,21 @@ public class User {
     @Column(name = "PASSWORD")
     private String password;
 
+    @Column(name = "USER_ROLE")
+    private UserRole userRole;
+
     @OneToMany(mappedBy = "appUser", fetch = FetchType.EAGER)
     private Collection<Order> orders;
 
     public User(){}
 
-    public User(long id, String firstName, String lastName, String email, String password, Collection<Order> orders) {
+    public User(long id, String firstName, String lastName, String email, String password, UserRole userRole, Collection<Order> orders) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
         this.password = password;
+        this.userRole = userRole;
         this.orders = orders;
     }
 
@@ -84,5 +90,13 @@ public class User {
 
     public void setOrders(Collection<Order> orders) {
         this.orders = orders;
+    }
+
+    public UserRole getUserRole() {
+        return userRole;
+    }
+
+    public void setUserRole(UserRole userRole) {
+        this.userRole = userRole;
     }
 }

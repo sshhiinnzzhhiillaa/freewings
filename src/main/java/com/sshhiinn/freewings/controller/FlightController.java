@@ -50,4 +50,33 @@ public class FlightController {
         model.addAttribute("flights", list);
         return "flight-list";
     }
+
+    @PostMapping(value = {"/flight/{flightId}/edit"})
+    public String updateContact(Model model, @PathVariable long flightId, @ModelAttribute("contact") Flight flight) {
+        try {
+            flight.setId(flightId);
+            flightService.update(flight);
+            return "redirect:/flight/" + flight.getId();
+        } catch (Exception ex) {
+            String errorMessage = ex.getMessage();
+            logger.error(errorMessage);
+            model.addAttribute("errorMessage", errorMessage);
+            model.addAttribute("add", false);
+            return "flight-edit";
+        }
+    }
+
+    @PostMapping(value = {"/flight/{flightId}/delete"})
+    public String deleteContactById(Model model, @PathVariable long flightId) {
+        try {
+            flightService.deleteById(flightId);
+            return "redirect:/flight";
+        } catch (ResourceNotFoundException ex) {
+            String errorMessage = ex.getMessage();
+            logger.error(errorMessage);
+            model.addAttribute("errorMessage", errorMessage);
+            return "flight";
+        }
+    }
+
 }

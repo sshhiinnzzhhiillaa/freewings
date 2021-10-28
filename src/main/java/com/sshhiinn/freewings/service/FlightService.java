@@ -13,7 +13,7 @@ import java.util.List;
 @Service
 public class FlightService {
 
-    private FlightRepository flightRepository;
+    private final FlightRepository flightRepository;
 
     @Autowired
     public FlightService(FlightRepository flightRepository) {
@@ -48,6 +48,26 @@ public class FlightService {
         List<Flight> list = new LinkedList<>();
         flightRepository.findAll().forEach(list::add);
         return list;
+    }
+
+    public void update(Flight flight) {
+        if (flight != null) {
+            if (existsById(flight.getId())) {
+                throw new ResourceNotFoundException("Cannot find Contact with id: " + flight.getId());
+            }
+            flightRepository.save(flight);
+        } else {
+            throw new IllegalArgumentException("Failed to save flight");
+        }
+    }
+
+    public void deleteById(Long id) throws ResourceNotFoundException {
+        if (!existsById(id)) {
+            throw new ResourceNotFoundException("Cannot find flight with id: " + id);
+        } else {
+            flightRepository.deleteById(id);
+        }
+
     }
 
 }
