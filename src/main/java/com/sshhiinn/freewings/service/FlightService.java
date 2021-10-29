@@ -38,7 +38,7 @@ public class FlightService {
     public Flight getById(long id) {
         Flight flight = flightRepository.findById(id).orElse(null);
         if (flight == null) {
-            throw new ResourceNotFoundException("Cannot find Contact with id: " + id);
+            throw new ResourceNotFoundException("Cannot find flight with id: " + id);
         } else {
             return flight;
         }
@@ -53,7 +53,7 @@ public class FlightService {
     public void update(Flight flight) {
         if (flight != null) {
             if (existsById(flight.getId())) {
-                throw new ResourceNotFoundException("Cannot find Contact with id: " + flight.getId());
+                throw new ResourceNotFoundException("Cannot find flight with id: " + flight.getId());
             }
             flightRepository.save(flight);
         } else {

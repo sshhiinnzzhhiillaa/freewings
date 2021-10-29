@@ -24,6 +24,35 @@ public class Order {
 
     public Order(){}
 
+    public long getId() {
+        return id;
+    }
 
+    public void setId(long id) {
+        this.id = id;
+    }
 
+    public User getAppUser() {
+        return appUser;
+    }
+
+    public void setAppUser(User appUser) {
+        this.appUser = appUser;
+    }
+
+    public List<Ticket> getTickets() {
+        return tickets;
+    }
+
+    public void setTickets(List<Ticket> tickets) {
+        this.tickets = tickets;
+    }
+
+    public int getSum() {
+        return sum;
+    }
+
+    public void setSum(int sum) {
+        this.sum = sum;
+    }
 }
