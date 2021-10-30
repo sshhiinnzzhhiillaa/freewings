@@ -4,9 +4,11 @@ import org.springframework.security.core.GrantedAuthority;
 
 import javax.persistence.Entity;
 import javax.persistence.ManyToMany;
+import javax.persistence.Table;
 import java.util.Set;
 
 @Entity
+@Table(name = "app_role")
 public class Role extends AbstractEntity implements GrantedAuthority {
     private String name;
 

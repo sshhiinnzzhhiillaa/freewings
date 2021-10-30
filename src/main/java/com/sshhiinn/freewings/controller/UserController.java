@@ -1,6 +1,7 @@
 package com.sshhiinn.freewings.controller;
 
 import com.sshhiinn.freewings.exception.UserAlreadyRegistered;
+import com.sshhiinn.freewings.exception.UserNotFound;
 import com.sshhiinn.freewings.model.User;
 import com.sshhiinn.freewings.repository.UserRepository;
 import com.sshhiinn.freewings.service.SecurityService;

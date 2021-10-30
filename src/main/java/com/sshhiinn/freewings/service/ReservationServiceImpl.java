@@ -1,15 +1,15 @@
 package com.sshhiinn.freewings.service;
 
-import com.flightreservation.flightreservation.domains.Flight;
-import com.flightreservation.flightreservation.domains.Passenger;
-import com.flightreservation.flightreservation.domains.Reservation;
-import com.flightreservation.flightreservation.dto.ReservationRequest;
-import com.flightreservation.flightreservation.exceptions.FlightNotFound;
-import com.flightreservation.flightreservation.repositories.FlightRepository;
-import com.flightreservation.flightreservation.repositories.PassengerRepository;
-import com.flightreservation.flightreservation.repositories.ReservationRepository;
-import com.flightreservation.flightreservation.util.EmailUtil;
-import com.flightreservation.flightreservation.util.PdfGenerator;
+import com.sshhiinn.freewings.dto.ReservationRequest;
+import com.sshhiinn.freewings.exception.FlightNotFound;
+import com.sshhiinn.freewings.model.Flight;
+import com.sshhiinn.freewings.model.Passenger;
+import com.sshhiinn.freewings.model.Reservation;
+import com.sshhiinn.freewings.repository.FlightRepository;
+import com.sshhiinn.freewings.repository.PassengerRepository;
+import com.sshhiinn.freewings.repository.ReservationRepository;
+import com.sshhiinn.freewings.util.EmailUtil;
+import com.sshhiinn.freewings.util.PdfGenerator;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;

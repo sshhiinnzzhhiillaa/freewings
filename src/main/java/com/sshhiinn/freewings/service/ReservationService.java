@@ -1,7 +1,7 @@
 package com.sshhiinn.freewings.service;
 
-import com.flightreservation.flightreservation.domains.Reservation;
-import com.flightreservation.flightreservation.dto.ReservationRequest;
+import com.sshhiinn.freewings.dto.ReservationRequest;
+import com.sshhiinn.freewings.model.Reservation;
 
 
 public interface ReservationService {

@@ -1,8 +1,7 @@
 package com.sshhiinn.freewings.service;
 
-import com.flightreservation.flightreservation.domains.User;
-import com.flightreservation.flightreservation.repositories.UserRepository;
-import org.springframework.beans.factory.annotation.Autowired;
+import com.sshhiinn.freewings.model.User;
+import com.sshhiinn.freewings.repository.UserRepository;
 
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;

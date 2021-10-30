@@ -1,6 +1,5 @@
 package com.sshhiinn.freewings.repository;
 
-import com.flightreservation.flightreservation.domains.Passenger;
 import com.sshhiinn.freewings.model.Passenger;
 import org.springframework.data.jpa.repository.JpaRepository;
 
