@@ -1,55 +1,26 @@
 package com.sshhiinn.freewings.model;
 
-import com.sshhiinn.freewings.common.UserRole;
-
 import javax.persistence.*;
-import java.util.Collection;
+import java.util.Set;
 
 @Entity
-@Table(name = "app_user")
-public class User {
+public class User extends AbstractEntity {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "USER_ID")
-    private long id;
-
-    @Column(name = "FIRST_NAME")
     private String firstName;
-
-    @Column(name = "LAST_NAME")
     private String lastName;
-
-    @Column(name = "EMAIL")
     private String email;
-
-    @Column(name = "PASSWORD")
     private String password;
 
-    @Column(name = "USER_ROLE")
-    private UserRole userRole;
+    @ManyToMany
+    @JoinTable(name = "user_role", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "role_id"))
+    private Set<Role> roles;
 
-    @OneToMany(mappedBy = "appUser", fetch = FetchType.EAGER)
-    private Collection<Order> orders;
-
-    public User(){}
-
-    public User(long id, String firstName, String lastName, String email, String password, UserRole userRole, Collection<Order> orders) {
-        this.id = id;
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.email = email;
-        this.password = password;
-        this.userRole = userRole;
-        this.orders = orders;
+    public Set<Role> getRoles() {
+        return roles;
     }
 
-    public long getId() {
-        return id;
-    }
-
-    public void setId(long id) {
-        this.id = id;
+    public void setRoles(Set<Role> roles) {
+        this.roles = roles;
     }
 
     public String getFirstName() {
@@ -84,19 +55,13 @@ public class User {
         this.password = password;
     }
 
-    public Collection<Order> getOrders() {
-        return orders;
-    }
-
-    public void setOrders(Collection<Order> orders) {
-        this.orders = orders;
-    }
-
-    public UserRole getUserRole() {
-        return userRole;
-    }
-
-    public void setUserRole(UserRole userRole) {
-        this.userRole = userRole;
+    @Override
+    public String toString() {
+        return "User{" +
+                "firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", email='" + email + '\'' +
+                ", password='" + password + '\'' +
+                '}';
     }
 }

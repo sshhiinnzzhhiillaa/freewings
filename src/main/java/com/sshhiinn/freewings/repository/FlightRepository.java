@@ -1,9 +1,18 @@
 package com.sshhiinn.freewings.repository;
 
-import com.sshhiinn.freewings.model.Flight;
-import org.springframework.data.repository.CrudRepository;
-import org.springframework.stereotype.Repository;
+import com.flightreservation.flightreservation.domains.Flight;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
 
-@Repository
-public interface FlightRepository extends CrudRepository<Flight, Long> {
+import java.util.Date;
+import java.util.List;
+
+public interface FlightRepository extends JpaRepository<Flight, Long> {
+    // JPQL query
+
+
+    @Query("from Flight where departureCity=:departureCity and arrivalCity=:arrivalCity and dateOfDeparture=:dateOfDeparture")
+    List<Flight> findFlights(@Param("departureCity") String from, @Param("arrivalCity") String to,
+                             @Param("dateOfDeparture") Date departureDate);
 }

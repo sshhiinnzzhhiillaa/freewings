@@ -1,14 +1,15 @@
 package com.sshhiinn.freewings.controller;
 
-import com.flightreservation.flightreservation.domains.Reservation;
-import com.flightreservation.flightreservation.dto.ReservationUpdateRequest;
-import com.flightreservation.flightreservation.exceptions.ReservationNotFound;
-import com.flightreservation.flightreservation.repositories.ReservationRepository;
+import com.sshhiinn.freewings.dto.ReservationUpdateRequest;
+import com.sshhiinn.freewings.exception.ReservationNotFound;
+import com.sshhiinn.freewings.model.Reservation;
+import com.sshhiinn.freewings.repository.ReservationRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Optional;
+
 
 @RestController
 public class ReservationRestController {

@@ -1,8 +1,6 @@
 package com.sshhiinn.freewings.service;
 
 import com.sshhiinn.freewings.common.UserRole;
-import com.sshhiinn.freewings.model.User;
-import com.sshhiinn.freewings.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

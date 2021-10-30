@@ -1,10 +1,9 @@
 package com.sshhiinn.freewings.controller;
 
-import com.flightreservation.flightreservation.domains.User;
-import com.flightreservation.flightreservation.exceptions.UserAlreadyRegistered;
-import com.flightreservation.flightreservation.exceptions.UserNotFound;
-import com.flightreservation.flightreservation.repositories.UserRepository;
-import com.flightreservation.flightreservation.services.SecurityService;
+import com.sshhiinn.freewings.exception.UserAlreadyRegistered;
+import com.sshhiinn.freewings.model.User;
+import com.sshhiinn.freewings.repository.UserRepository;
+import com.sshhiinn.freewings.service.SecurityService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;

@@ -1,114 +1,78 @@
 package com.sshhiinn.freewings.model;
 
-import javax.persistence.*;
-import java.util.Collection;
+import javax.persistence.Entity;
+
+import java.sql.Timestamp;
 import java.util.Date;
 
 @Entity
-@Table(name = "flight")
-public class Flight {
+public class Flight extends AbstractEntity {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "FLIGHT_ID")
-    private long id;
+    private String flightNumber;
+    private String operatingAirlines;
+    private String departureCity;
+    private String arrivalCity;
+    private Date dateOfDeparture;
+    private Timestamp estimatedDepartureTime;
 
-    @Column(name = "PLANE_NAME")
-    private String planeName;
 
-    @Column(name = "NUMBER_OF_SEATS")
-    private int numberOfSeats;
-
-    @Column(name = "DATE_OF_FLIGHT")
-    private Date dateOfFlight;
-
-    @Column(name = "AIRLINE_NAME")
-    private String airlineName;
-
-    @Column(name = "START_CITY")
-    private String startCity;
-
-    @Column(name = "FINAL_CITY")
-    private String finalCity;
-
-    @OneToMany(mappedBy = "flight", fetch = FetchType.EAGER)
-    private Collection<Seat> seats;
-
-    public Flight(){}
-
-    public Flight(long id, String planeName, int numberOfSeats, Date dateOfFlight,
-                  String airlineName, String startCity, String finalCity, Collection<Seat> seats) {
-        this.id = id;
-        this.planeName = planeName;
-        this.numberOfSeats = numberOfSeats;
-        this.dateOfFlight = dateOfFlight;
-        this.airlineName = airlineName;
-        this.startCity = startCity;
-        this.finalCity = finalCity;
-        this.seats = seats;
+    public String getFlightNumber() {
+        return flightNumber;
     }
 
-    public long getId() {
-        return id;
+    public void setFlightNumber(String flightNumber) {
+        this.flightNumber = flightNumber;
     }
 
-    public void setId(long id) {
-        this.id = id;
+    public String getOperatingAirlines() {
+        return operatingAirlines;
     }
 
-    public String getPlaneName() {
-        return planeName;
+    public void setOperatingAirlines(String operatingAirlines) {
+        this.operatingAirlines = operatingAirlines;
     }
 
-    public void setPlaneName(String planeName) {
-        this.planeName = planeName;
+    public String getDepartureCity() {
+        return departureCity;
     }
 
-    public int getNumberOfSeats() {
-        return numberOfSeats;
+    public void setDepartureCity(String departureCity) {
+        this.departureCity = departureCity;
     }
 
-    public void setNumberOfSeats(int numberOfSeats) {
-        this.numberOfSeats = numberOfSeats;
+    public String getArrivalCity() {
+        return arrivalCity;
     }
 
-    public Date getDateOfFlight() {
-        return dateOfFlight;
+    public void setArrivalCity(String arrivalCity) {
+        this.arrivalCity = arrivalCity;
     }
 
-    public void setDateOfFlight(Date dateOfFlight) {
-        this.dateOfFlight = dateOfFlight;
+    public Date getDateOfDeparture() {
+        return dateOfDeparture;
     }
 
-    public Collection<Seat> getSeats() {
-        return seats;
+    public void setDateOfDeparture(Date dateOfDeparture) {
+        this.dateOfDeparture = dateOfDeparture;
     }
 
-    public void setSeats(Collection<Seat> seats) {
-        this.seats = seats;
+    public Timestamp getEstimatedDepartureTime() {
+        return estimatedDepartureTime;
     }
 
-    public String getAirlineName() {
-        return airlineName;
+    public void setEstimatedDepartureTime(Timestamp estimatedDepartureTime) {
+        this.estimatedDepartureTime = estimatedDepartureTime;
     }
 
-    public void setAirlineName(String airlineName) {
-        this.airlineName = airlineName;
-    }
-
-    public String getStartCity() {
-        return startCity;
-    }
-
-    public void setStartCity(String startCity) {
-        this.startCity = startCity;
-    }
-
-    public String getFinalCity() {
-        return finalCity;
-    }
-
-    public void setFinalCity(String finalCity) {
-        this.finalCity = finalCity;
+    @Override
+    public String toString() {
+        return "Flight{" +
+                "flightNumber='" + flightNumber + '\'' +
+                ", operatingAirlines='" + operatingAirlines + '\'' +
+                ", departureCity='" + departureCity + '\'' +
+                ", arrivalCity='" + arrivalCity + '\'' +
+                ", dateOfDeparture=" + dateOfDeparture +
+                ", estimatedDepartureTime=" + estimatedDepartureTime +
+                '}';
     }
 }

@@ -1,7 +1,7 @@
 package com.sshhiinn.freewings.controller;
 
-import com.flightreservation.flightreservation.domains.Flight;
-import com.flightreservation.flightreservation.repositories.FlightRepository;
+import com.sshhiinn.freewings.model.Flight;
+import com.sshhiinn.freewings.repository.FlightRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.format.annotation.DateTimeFormat;

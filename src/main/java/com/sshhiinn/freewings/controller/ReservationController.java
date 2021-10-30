@@ -1,11 +1,11 @@
 package com.sshhiinn.freewings.controller;
 
-import com.flightreservation.flightreservation.domains.Flight;
-import com.flightreservation.flightreservation.domains.Reservation;
-import com.flightreservation.flightreservation.dto.ReservationRequest;
-import com.flightreservation.flightreservation.exceptions.FlightNotFound;
-import com.flightreservation.flightreservation.repositories.FlightRepository;
-import com.flightreservation.flightreservation.services.ReservationService;
+import com.sshhiinn.freewings.dto.ReservationRequest;
+import com.sshhiinn.freewings.exception.FlightNotFound;
+import com.sshhiinn.freewings.model.Flight;
+import com.sshhiinn.freewings.model.Reservation;
+import com.sshhiinn.freewings.repository.FlightRepository;
+import com.sshhiinn.freewings.service.ReservationService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
