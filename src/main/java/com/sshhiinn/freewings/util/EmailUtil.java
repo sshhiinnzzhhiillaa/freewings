@@ -14,7 +14,7 @@ import java.io.File;
 @Component
 public class EmailUtil {
 
-    @Value("${com.flightreservation.flightreservation.itinerary.email.body}")
+    @Value("${email.body}")
     private String EMAIL_BODY = "Please find your Itinerary attached.";
 
     @Value("${com.flightreservation.flightreservation.itinerary.email.subject")

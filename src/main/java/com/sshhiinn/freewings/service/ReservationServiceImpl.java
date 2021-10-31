@@ -23,7 +23,7 @@ import java.util.Optional;
 @Transactional
 public class ReservationServiceImpl implements ReservationService {
 
-    @Value("${com.flightreservation.flightreservation.itinerary.dirpath}")
+    @Value("${itinerary.dirpath}")
     private String ITINERARY_DIR;
 
     private final FlightRepository flightRepository;
