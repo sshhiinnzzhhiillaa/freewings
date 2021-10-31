@@ -1,4 +1,4 @@
-package com.flightreservation.flightreservation;
+package com.sshhiinn.freewings;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
