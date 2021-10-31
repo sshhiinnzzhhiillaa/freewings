@@ -7,7 +7,11 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class FreewingsApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(FreewingsApplication.class, args);
+        try {
+            SpringApplication.run(FreewingsApplication.class, args);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
 }
