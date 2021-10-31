@@ -2,6 +2,8 @@ package com.sshhiinn.freewings.controller;
 
 import com.sshhiinn.freewings.model.Flight;
 import com.sshhiinn.freewings.repository.FlightRepository;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.format.annotation.DateTimeFormat;
@@ -14,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import java.util.Date;
 import java.util.List;
 
+@Tag(name = "Flight", description = "Flights API")
 @Controller
 public class FlightController {
 
@@ -25,6 +28,7 @@ public class FlightController {
         this.flightRepository = flightRepository;
     }
 
+    @Operation(summary = "Get flight")
     @RequestMapping("/findFlights")
     public String findFLights(@RequestParam("source") String source, @RequestParam("destination") String destination,
                               @RequestParam("departDate") @DateTimeFormat(pattern = "MM-dd-yyyy") Date departDate, ModelMap modelMap) {
@@ -36,11 +40,13 @@ public class FlightController {
         return "flights/displayFlights";
     }
 
+    @Operation(summary = "Show add flight")
     @RequestMapping("/admin/showAddFlight")
     public String showAddFlightPage() {
         return "flights/addFlight";
     }
 
+    @Operation(summary = "Create flight")
     @RequestMapping("/admin/addFlight")
     public String addFlight(@ModelAttribute("flight") Flight flight, ModelMap modelmap) {
         flightRepository.save(flight);

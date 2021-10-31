@@ -6,6 +6,8 @@ import com.sshhiinn.freewings.model.Flight;
 import com.sshhiinn.freewings.model.Reservation;
 import com.sshhiinn.freewings.repository.FlightRepository;
 import com.sshhiinn.freewings.service.ReservationService;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
@@ -16,6 +18,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.Optional;
 
+@Tag(name = "Reservation", description = "Reservations API")
 @Controller
 public class ReservationController {
 
@@ -30,6 +33,7 @@ public class ReservationController {
         this.reservationService = reservationService;
     }
 
+    @Operation(summary = "Get complete reservation")
     @RequestMapping("/showCompleteReservation")
     public String showCompleteReservation(@RequestParam("flightId") Long flightId, ModelMap modelMap) {
         LOGGER.info("showCompleteReservation() invoked with the Flight Id: " + flightId);
@@ -43,6 +47,7 @@ public class ReservationController {
         return "reservation/completeReservation";
     }
 
+    @Operation(summary = "Add complete reservation")
     @RequestMapping(value = "/completeReservation", method = RequestMethod.POST)
     public String completeReservation(ReservationRequest reservationRequest, ModelMap modelMap) {
         LOGGER.info("completeReservation() invoked with the Reservation: " + reservationRequest.toString());

@@ -5,6 +5,8 @@ import com.sshhiinn.freewings.exception.UserNotFound;
 import com.sshhiinn.freewings.model.User;
 import com.sshhiinn.freewings.repository.UserRepository;
 import com.sshhiinn.freewings.service.SecurityService;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -17,6 +19,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.Optional;
 
+@Tag(name = "User", description = "Users API")
 @Controller
 public class UserController {
 
@@ -34,12 +37,14 @@ public class UserController {
         this.securityService = securityService;
     }
 
+    @Operation(summary = "Show create user")
     @RequestMapping("/showReg")
     public String showRegistrationPage() {
         LOGGER.info("Inside showRegistrationPage()");
         return "login/registerUser";
     }
 
+    @Operation(summary = "Create user")
     @RequestMapping(value = "/registerUser", method = RequestMethod.POST)
     public String register(@ModelAttribute("user") User user) {
         LOGGER.info("{} Inside register()", user.getEmail());
@@ -54,12 +59,14 @@ public class UserController {
         return "login/login";
     }
 
+    @Operation(summary = "Show login")
     @RequestMapping("/showLogin")
     public String showLoginPage() {
         LOGGER.info("Inside showLoginPage()");
         return "login/login";
     }
 
+    @Operation(summary = "Login")
     @RequestMapping(value = "/login", method = RequestMethod.POST)
     public String login(@RequestParam("email") String email, @RequestParam("password") String password, ModelMap modelmap) {
         LOGGER.info("{} Inside login()", email);
