@@ -39,10 +39,10 @@ public class ReservationController {
         LOGGER.info("showCompleteReservation() invoked with the Flight Id: " + flightId);
         Optional<Flight> flight = flightRepository.findById(flightId);
         if (flight.isEmpty()) {
-            LOGGER.error("Flight Not found: {}", flight.toString());
+            LOGGER.error("Flight Not found: {}", flight);
             throw new FlightNotFound("flightId " + flightId);
         }
-        LOGGER.info("Flight found: {}", flight.toString());
+        LOGGER.info("Flight found: {}", flight);
         modelMap.addAttribute("flight", flight.get());
         return "reservation/completeReservation";
     }
