@@ -71,7 +71,6 @@ public class UserController {
     public String login(@RequestParam("email") String email, @RequestParam("password") String password, ModelMap modelmap) {
         LOGGER.info("{} Inside login()", email);
         Optional<User> foundUser = userRepository.findByEmail(email);
-        // handle error here what if no user found
         if (!foundUser.isPresent()) {
             LOGGER.error("Email not found: " + email);
             throw new UserNotFound("Email not found: " + email);
