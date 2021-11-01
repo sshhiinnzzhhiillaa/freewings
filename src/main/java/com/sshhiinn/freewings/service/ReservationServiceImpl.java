@@ -51,7 +51,7 @@ public class ReservationServiceImpl implements ReservationService {
         LOGGER.info("Inside bookFlight()");
         Long flightId = reservationRequest.getFlightId();
         Optional<Flight> flightOptional = flightRepository.findById(flightId);
-        if (!flightOptional.isPresent()) {
+        if (flightOptional.isEmpty()) {
             throw new FlightNotFound("No flight found with id " + flightId);
         }
         LOGGER.info("Flight found with id: {}", flightId);
@@ -79,7 +79,7 @@ public class ReservationServiceImpl implements ReservationService {
         LOGGER.info("Generating  the itinerary");
         pdfGenerator.generateItenary(savedReservation, filePath);
         LOGGER.info("Emailing the Itinerary");
-        emailUtil.sendItenary("dlulla@akamai.com", filePath);
+        emailUtil.sendItenary("test@test.com", filePath);
 
         return savedReservation;
 
