@@ -40,6 +40,12 @@ public class FlightController {
         return "flights/displayFlights";
     }
 
+    @Operation(summary = "Show find flight")
+    @RequestMapping("/showFindFlight")
+    public String showFindFlightPage() {
+        return "flights/findFlights";
+    }
+
     @Operation(summary = "Show add flight")
     @RequestMapping("/admin/showAddFlight")
     public String showAddFlightPage() {
@@ -51,7 +57,7 @@ public class FlightController {
     public String addFlight(@ModelAttribute("flight") Flight flight, ModelMap modelmap) {
         flightRepository.save(flight);
         modelmap.addAttribute("msg", "Flight Added Successfully");
-        return "flights/addFlight";
+        return "menu";
     }
 
 }

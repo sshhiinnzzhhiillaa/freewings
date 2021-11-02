@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet"
+          th:href="@{/lib/bootstrap/dist/css/bootstrap.min.css}"/>
+    <link rel="stylesheet" href="../static/css/app.css" th:href="@{/css/index.css}"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script th:src="@{/lib/angular/angular.min.js}"></script>
+    <title> Freewings </title>
+</head>
+<body>
+<div class="container">
+    <div class="body-box">
+        <div class="row index-box">
+            <div class="col-sm-6 fa_col">
+                <a th:href="@{/showFindFlight}">
+                    <span> Find flights </span>
+                </a>
+            </div>
+            <div class="col-sm-6 fa_col">
+                <a th:href="@{/admin/showAddFlight}">
+                    <span> Add flight </span>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+<script th:src="@{/lib/jquery/dist/jquery.min.js}"></script>
+</body>
+</html>

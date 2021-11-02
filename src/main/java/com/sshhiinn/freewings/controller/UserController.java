@@ -79,7 +79,7 @@ public class UserController {
         boolean loginResponse = securityService.login(email, password);
         if (loginResponse) {
             modelmap.addAttribute("msg", "Successfully logged in");
-            return "flights/findFlights";
+            return "menu";
         } else {
             LOGGER.info("User entered Invalid credentials email:{} and password:{}", email, password);
             modelmap.addAttribute("msg", "Invalid username or password");
